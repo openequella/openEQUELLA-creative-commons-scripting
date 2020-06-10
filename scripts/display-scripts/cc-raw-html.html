@@ -1,0 +1,22 @@
+<p><b><span id="licenseTitle"></span></b></p>
+<p><span id="licenseHeaderDescription"></span></p>
+<p><span id="licenseLinkAndImage"></span><br/>
+<span id="licenseFooterDescription"></span></p>
+
+<script src="/{context}/s/cc-license-data"></script>
+<script type="text/javascript">
+    $(document).ready(function($) {
+        var ccType = '{/metadata/drm/type}';
+        if(enableCcLicenseDisplay(ccType)) {
+            const acu = '{/metadata/drm/cc/allow.commercial.uses}';
+            const am = '{/metadata/drm/cc/allow.modifications}';
+            const v = '{/metadata/drm/cc/version}';
+            const defaultV = '{/metadata/drm/cc/system.default.license.version}';
+            const dType = 'W';
+            $( "#licenseTitle" ).html(getCcLicenseTitle(dType, ccType, acu, am, v, defaultV));
+            $( "#licenseHeaderDescription" ).html(getCcLicenseHeaderDescription(dType, ccType, acu, am, v, defaultV));
+            $( "#licenseLinkAndImage" ).html(getCcLicenseLinkAndImage(dType, ccType, acu, am, v, defaultV));
+            $( "#licenseFooterDescription" ).html(getCcLicenseFooterDescription(dType, ccType, acu, am, v, defaultV));
+        }
+    });
+</script>
