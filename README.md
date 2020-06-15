@@ -48,7 +48,7 @@ Contribute an item for ‘Creative Commons’
 
 Specify the current license.
 
-Upload [CreativeCommonsData.js](scripts/javascript/CreativeCommonsData.js)
+Upload [CreativeCommonsData.js](scripts/javascript/creativeCommonsData.js)
 
 After that item is published, associate the js file link with a shortcut URL set to ( /cc-license-data ) with the format:
  https://(domain)/items/(itemuuid)/0/creativeCommonsData.js
@@ -61,25 +61,39 @@ Add a user script (JS) called 'cc-license' (It’s under Settings.  You may need
 
 _For each collection_
 
-In the Collection Wizard, under the ‘Derivative works’ widget, add an ‘Advanced Scripting Control’ with the following:
+In the Collection Wizard, add three radio button groups:
 
-[ASC](scripts/asc/cc-widget.js)
+* License type - `/metadata/drm/type` - with the options:
+  * No license
+  * Creative Commons
+  * Creative Commons' Public Domain
+* Allow Commercial Uses - `/metadata/drm/cc/allow.commercial.uses`- with the options:
+  * Yes
+  * No
+* Allow Modifications - `/metadata/drm/cc/allow.modifications` - with the options:
+  * Yes
+  * No
+  * Share
 
-Check Box Group - Under the ASC, add a Check Box Group with a metadata path of `/metadata/drm/system-upgrade-version` and a single name / value pair of:
+Add an ‘Advanced Scripting Control’ with the following:
 
-Name: Yes - Upgrade Creative Commons License Version
-Value: upgrade_version
+[ASC](scripts/asc/cc-widget.ftl)
+
+Check Box Group - Under the ASC, add a Check Box Group with a metadata path of `/metadata/drm/system-upgrade-version`, the name `Upgrade Creative Commons?`, and a single name / value pair of:
+
+* Name: Yes - Upgrade Creative Commons License Version
+* Value: upgrade_version
 
 Add the following visibility script to the check box group:
 
-[ASC Visibility](scripts/asc/cc-widget-visibility.js)
+[Check Box Visibility](scripts/asc/cc-checkbox-visibility.js)
 
 
 Add a single 'Raw HTML':
 [Raw HTML](scripts/display-scripts/cc-raw-html.html)
 
 Add the visibility script to the 'Raw HTML':
-[Visiblity Script](scripts/display-scripts/cc-raw-html-visibility.html)
+[Visiblity Script](scripts/display-scripts/cc-raw-html-visibility.js)
 
 ### Update Target Collection Item Summary Display Template
 
